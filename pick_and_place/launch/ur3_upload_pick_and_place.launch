@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
+  <!-- <arg name="kinematics_config" default="$(find ur_e_description)/config/ur3e_default.yaml"/> -->
+  <arg name="limited" default="true"/>
+  <arg name="kinematics_config" default="$(find pick_and_place)/config/ur3_default.yaml"/>
+  
+  
+  <param if="$(arg limited)" name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find pick_and_place)/urdf/ur3_hand.urdf.xacro'
+      transmission_hw_interface:=$(arg transmission_hw_interface) kinematics_config:=$(arg kinematics_config)" />
+      <param unless="$(arg limited)" name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find pick_and_place)/urdf/ur3_hand.urdf.xacro'
+      transmission_hw_interface:=$(arg transmission_hw_interface) kinematics_config:=$(arg kinematics_config)" />
+  
+</launch>
+  <!-- kinematics_config:=$(arg kinematics_config)" -->

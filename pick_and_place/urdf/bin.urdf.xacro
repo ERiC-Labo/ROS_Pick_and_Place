@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name='bin'>
+
+        <link name="world"/>
+        <joint name="bin_joint" type="fixed">
+            <parent link="world"/>
+            <child link="bin_link"/>
+        </joint>
+
+        <link name="bin_link">
+            <inertial>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <mass value="6.614"/>
+                <inertia ixx="0.098" ixy="0.0" ixz="0.0" iyy="0.098" iyz="0.0" izz="0.123"/>
+            </inertial>
+            <visual>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/bin.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/bin.dae"/>
+                </geometry>
+            </collision>
+        </link>
+</robot>

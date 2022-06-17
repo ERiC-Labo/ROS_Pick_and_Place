@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="robotiq_handE" params="parent *origin">
+        <material name="gray">
+            <color rgba="0.5 0.5 0.5 2.0"/>
+        </material>
+        <material name="black">
+            <color rgba="1.0 1.0 1.0 2.0"/>
+        </material>
+        <joint name="body_joint" type="fixed">
+            <parent link="${parent}"/>
+            <child link="body_link"/>
+            <xacro:insert_block name="origin"/>
+        </joint>
+        <link name="body_link">
+            <inertial>
+                <origin xyz="0.2 0.0 0.0" />
+                <mass value="0.63387"/>
+                <inertia ixx = "0.02" ixy = "0.000000" ixz = "0.000000"
+                    iyx = "0.000000" iyy = "0.05" iyz = "0.000000"
+                    izx = "0.000000" izy = "0.000000" izz = "0.06" />
+            </inertial>
+            <visual>
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/body.dae"/>
+                </geometry>
+
+                <!--origin xyz="0.086 0 0" rpy="0.0 ${pi/2} 0.0"/-->
+            </visual>
+            <collision>
+               <!--origin xyz="0.086 0 0" rpy="0.0 ${pi/2} 0.0"/-->
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/body.dae"/>
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="body_link">
+            <material>Gazebo/Black</material>
+
+        </gazebo>
+        <!-- <joint name="finger1_joint" type="fixed">
+            <parent link="body_link"/>
+            <child link="finger_11_link"/>
+            <origin xyz="0.0 0.0 0.0" rpy="${-pi/2} ${2*pi/2} 0.0"/>
+            <<axis xyz="0 0 -1"/>
+            <limit effort="130" lower="0" upper="0.025" velocity="0.15"/> 
+        </joint> -->
+        <joint name="finger1_joint" type="prismatic">
+            <parent link="body_link"/>
+            <child link="finger_11_link"/>
+            <origin xyz="0.0 0.0 0.0" rpy="${-pi/2} ${2*pi/2} 0.0"/>
+            <axis xyz="0 0 -1"/>
+            <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+        </joint>
+        <!-- <joint name="finger1_joint" type="revolute">
+            <parent link="body_link"/>
+            <child link="finger_11_link"/>
+            <origin xyz="0.0 0.0 0.0" rpy="${-pi/2} ${2*pi/2} 0.0"/>
+            <axis xyz="0 0 -1"/>
+            <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+            <limit lower="0" upper="0.7" velocity="2.0" effort="1000" />
+           
+                <limit lower="0" upper="0.7" velocity="2.0" effort="1000" />
+            <xacro:if value="true">
+            <safety_controller soft_lower_limit="${-2.0 * pi}" soft_upper_limit="${2.0 * pi}" k_position="${pi}" k_velocity="0.0"/>
+            </xacro:if>
+           
+            
+            <dynamics damping="0.0" friction="0.0"/>
+        </joint> -->
+        <link name="finger_11_link">
+            <inertial>
+                <origin xyz="0.0 0.0 0.0" />
+                <mass value="0.03804"/>
+                <inertia ixx = "0.02" ixy = "0.000000" ixz = "0.000000"
+                        iyx = "0.000000" iyy = "0.05" iyz = "0.000000"
+                        izx = "0.000000" izy = "0.000000" izz = "0.06" />
+            </inertial>
+            <visual>
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/finger_11.dae"/>
+                </geometry>
+                <material name="gray" />
+                <!-- <origin rpy="${pi/2} ${-pi/2} ${pi}" xyz="0.086 0 0"/> -->
+            </visual>
+            <collision>
+                <!-- <origin rpy="${pi/2} ${-pi/2} ${pi}" xyz="0.086 0 0"/> -->
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/finger_11.dae"/>
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="finger_11_link">
+            <material>Gazebo/Grey</material>
+
+            <selfCollide>true</selfCollide>
+            <mu1 value="0.8"/>
+            <mu2 value="0.8"/>
+        </gazebo>
+
+        <!--joint name="finger2_joint" type="fixed">
+            <parent link="body_link"/>
+            <child link="finger_22_link"/>
+            <origin rpy="${-pi/2} ${2*pi/2} 0.0" xyz="0.0 0.02 0.0"/>
+        </joint-->
+        <joint name="finger2_joint" type="prismatic">
+            <parent link="body_link"/>
+            <child link="finger_22_link"/>
+            <origin rpy="${-pi/2} ${2*pi/2} 0.0" xyz="0.0 0.0 0.0"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+            <mimic joint="finger1_joint" multiplier="1" offset="0"/>
+
+        </joint>
+         <!-- <joint name="finger2_joint" type="fixed">
+            <parent link="body_link"/>
+            <child link="finger_22_link"/>
+            <origin rpy="${-pi/2} ${2*pi/2} 0.0" xyz="0.0 0.0 0.0"/>
+            <axis xyz="0 0 1"/>
+            <limit effort="130" lower="0" upper="0.025" velocity="0.15"/>
+            <mimic joint="finger1_joint" multiplier="1" offset="0"/>
+
+        </joint> -->
+        <link name="finger_22_link">
+            <inertial>
+                <origin xyz="0.0 0.0 0.0" />
+                <!--origin rpy="0 0 0" xyz="-0.02262 0.00759 0.00738"/-->
+                <mass value="0.03804"/>
+                <inertia ixx = "0.02" ixy = "0.000000" ixz = "0.000000"
+                        iyx = "0.000000" iyy = "0.05" iyz = "0.000000"
+                        izx = "0.000000" izy = "0.000000" izz = "0.06" />
+            </inertial>
+            <visual>
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/finger_22.dae"/>
+                </geometry>
+                <material name="gray" />
+                <!--origin rpy="${-pi/2} ${3*pi/2} 0.0" xyz="0.086 0.02 0.0"/-->
+            </visual>
+            <collision>
+                <!--origin rpy="${-pi/2} ${3*pi/2} 0.0" xyz="0.086 0.02 0.0"/-->
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/finger_22.dae"/>
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="finger_22_link">
+            <material>Gazebo/Grey</material>
+
+            <selfCollide>true</selfCollide>
+            <mu1 value="0.8"/>
+            <mu2 value="0.8"/>
+        </gazebo>
+
+
+<!-- Jointのmimicの機能を使えるようにするためのプラグイン-->
+
+        <gazebo>
+             <plugin filename="libroboticsgroup_gazebo_mimic_joint_plugin.so" name="mimic">
+                <joint>finger1_joint</joint>
+                <mimicJoint>finger2_joint</mimicJoint>
+                <multiplier>1.0</multiplier>
+            </plugin>
+        </gazebo>
+  <!--     -->
+
+<!--  Gazeboの吸着プラグイン(これがないと掴んでも滑って物体が離れてしまう)-->
+        <gazebo>
+            <plugin name="gazebo_grasp_fix_right" filename="libgazebo_grasp_fix.so">
+            <arm>
+                <arm_name>ur3e_gripper</arm_name>
+                <palm_link>wrist_3_link</palm_link>
+                <gripper_link>finger_11_link</gripper_link>
+                <gripper_link>finger_22_link</gripper_link>
+            </arm>
+            <forces_angle_tolerance>100</forces_angle_tolerance>
+            <update_rate>4</update_rate>
+            <grip_count_threshold>4</grip_count_threshold>
+            <max_grip_count>8</max_grip_count>
+            <release_tolerance>0.001</release_tolerance>
+            <disable_collisions_on_attach>false</disable_collisions_on_attach>
+            <contact_topic>__default_topic__</contact_topic>
+            </plugin>
+        </gazebo>
+<!-- -->
+    
+        <transmission name="hardware_trans_1">
+            <type>trainsmission_interface/SimpleTransmission</type>
+            <joint name="finger1_joint">
+                <hardwareInterface>PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="finger1_actuator">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+</robot>

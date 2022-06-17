@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name='desk2'>
+        <link name="world"/>
+        <joint name="desk2_joint" type="fixed">
+            <parent link="world"/>
+            <child link="desk2_link"/>
+        </joint>
+
+        <link name="desk2_link">
+            <inertial>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <mass value="6.614"/>
+                <inertia ixx="0.098" ixy="0.0" ixz="0.0" iyy="0.098" iyz="0.0" izz="0.123"/>
+            </inertial>
+            <visual>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/desk3.dae"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://pick_and_place/meshes/desk3.dae"/>
+                </geometry>
+            </collision>
+        </link>
+</robot>

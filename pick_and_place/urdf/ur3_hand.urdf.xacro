@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur3e_gripper">
+
+  <!--xacro:include filename="$(find ur5_description)/urdf/ur5_joint_limited_robot.urdf.xacro" /-->
+  <xacro:include filename="$(find pick_and_place)/urdf/ur3e_joint_limited_robot.urdf.xacro" />
+  <xacro:include filename="$(find pick_and_place)/urdf/hande.urdf.xacro" />
+  
+  <!-- Robotiq Coupler -->
+  <!--  + Height added by the coupler: 8mm -->
+  <!--  + Reference frame: at the middle (4mm) -->
+  <link name="robotiq_coupler">
+    <visual>
+      <geometry>
+        <mesh filename="package://pick_and_place/meshes/robotiq_85_coupler.stl" />
+      </geometry>
+      <material name="flat_black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://pick_and_place/meshes/robotiq_85_coupler.stl" />
+      </geometry>
+    </collision>
+    <inertial>
+      <!--origin xyz="2.073e-05   1.45286e-03  -1.1049e-03" rpy="0 0 0" /-->
+      <mass value="0.168" />
+      <inertia ixx="6.69695624e-05" ixy="5.21511788e-09" ixz="-2.74383009e-08" 
+               iyy="7.85088161e-05" iyz="5.41105193e-07" izz="1.41819717e-04"/>
+    </inertial>
+  </link>
+
+  <joint name="robotiq_coupler_joint" type="fixed">
+    <!--origin xyz="0 0 0.004" rpy="0 0 ${pi}" /-->
+    <parent link="tool0"/>
+    <child link="robotiq_coupler"/>
+  </joint>
+  <gazebo reference="robotiq_coupler">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  
+  
+  <!-- Attach the robotiq 85 gripper -->
+  <xacro:robotiq_handE parent="robotiq_coupler" >
+    <origin xyz="0 0 0.088" rpy="${pi*2} ${-4*pi/2} ${pi/2}"/>
+  </xacro:robotiq_handE> 
+  
+  <!-- Gazebo FT sensor plugin -->
+  <gazebo reference="wrist_3_joint">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <link name="end_link"/>
+    
+  <joint name="end_end_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="body_link"/>
+    <child link="end_link"/>
+    <axis xyz="0.0 0.0 0.0"/>
+  </joint>
+  
+</robot>

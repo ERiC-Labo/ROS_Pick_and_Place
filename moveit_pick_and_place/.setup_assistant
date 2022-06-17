@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: pick_and_place
+    relative_path: urdf/ur3_hand.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ur3e_gripper.srdf
+  CONFIG:
+    author_name: keihama0305@gmail.com
+    author_email: keihama0305@gmail.com
+    generated_timestamp: 1655432410

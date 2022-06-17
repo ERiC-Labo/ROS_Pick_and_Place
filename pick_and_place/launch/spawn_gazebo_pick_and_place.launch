@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="model" default="$(find pick_and_place)/urdf/ur3_hand.urdf.xacro"/> 
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" >
+        <arg name="gui" default="true"/>
+        <!-- <arg name="world_name" default="/home/tsuchida/worlds/ur5_cubes.world"/> -->
+
+    </include>
+    <rosparam file="$(find pick_and_place)/config/ur3e_gripper.yaml" command="load"/>
+    <node pkg="controller_manager" type="controller_manager" name="ros_controller_manager" respawn="false" output="screen" args="spawn manipulator_controller gripper_controller"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="bin" args="-file $(find pick_and_place)/urdf/bin.urdf.xacro -urdf -model bin -x 0.0 -y 0.8 -z 0.0"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="desk2" args="-file $(find pick_and_place)/urdf/desk2.urdf.xacro -urdf -model desk2 -x 0.765 -y 0.0 -z 0.0"/>
+    <node pkg="gazebo_ros" type="spawn_model" name="redbox" args="-file $(find pick_and_place)/urdf/redbox.urdf.xacro -urdf -model redbox -x 0.6 -y -0.15 -z 1"/>
+
+    <node pkg="gazebo_ros" type="spawn_model" name="spawn_gazebo_model" args="-param robot_description -urdf -model ur3e_gripper -z 0" output="screen" respawn="false"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+        <param name="publish_frequency" type="double" value="50.0" />
+        <param name="tf_prefix" type="string" value="" />
+    </node>
+
+    <node pkg="rostopic" type="rostopic" name="fake_joint_calibration"
+            args="pub /calibrated std_msgs/Bool true" />
+    
+    <!-- joint_state_controller -->
+    <rosparam file="$(find pick_and_place)/config/joint_state_controller.yaml" command="load"/>
+    <node name="joint_state_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn joint_state_controller" respawn="false" output="screen"/>
+</launch>

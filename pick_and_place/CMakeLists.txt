@@ -220,11 +220,6 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-# add_executable(pick_and_place src/pick_and_place.cpp)
-# target_link_libraries(pick_and_place
-#         ${catkin_LIBRARIES}
-# )  
-
 add_executable(pick_and_place src/pick_and_place_class.cpp src/pick_and_place_node.cpp)
 target_link_libraries(pick_and_place
         ${catkin_LIBRARIES}

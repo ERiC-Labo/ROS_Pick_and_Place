@@ -10,6 +10,14 @@ project(pick_and_place)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  moveit_core
+  moveit_ros_planning
+  moveit_ros_planning_interface
+  moveit_visual_tools
+  control_msgs
+  geometry_msgs
+  shape_msgs
+  actionlib
 )
 
 ## System dependencies are found with CMake's conventions
@@ -102,9 +110,17 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES pick_and_place
-#  CATKIN_DEPENDS roscpp rospy
+ INCLUDE_DIRS include
+ LIBRARIES pick_and_place
+ CATKIN_DEPENDS 
+ roscpp 
+ rospy
+ control_msgs
+ geometry_msgs
+ shape_msgs
+ moveit_core
+ moveit_ros_planning_interface
+ actionlib
 #  DEPENDS system_lib
 )
 
@@ -115,7 +131,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -203,3 +219,13 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+# add_executable(pick_and_place src/pick_and_place.cpp)
+# target_link_libraries(pick_and_place
+#         ${catkin_LIBRARIES}
+# )  
+
+add_executable(pick_and_place src/pick_and_place_class.cpp src/pick_and_place_node.cpp)
+target_link_libraries(pick_and_place
+        ${catkin_LIBRARIES}
+)

@@ -9,7 +9,7 @@
 対象領域を抽出したマスク画像から把持位置を求めましょう。把持位置となる対象物体を代表する点はいろいろありますが、今回は重心座標を把持位置とします。
 # ピクセル座標系からワールド座標系への変換
 先程までの処理で、把持位置を求めることができました。しかしながら、求めた把持位置の座標はピクセル値なのでロボットを動かすには、メートル単位のワールド座標系に変換してあげる必要があります。ピクセル座標系からワールド座標系へ変換する最も簡単な方法はピンホールカメラモデルを考えることです。下の画像をご覧ください。<br>
-![image](https://user-images.githubusercontent.com/75206988/174442053-f81a8ed7-04ae-4381-9a9b-e78bdf99a9c5.png)
+![image](https://user-images.githubusercontent.com/75206988/174442053-f81a8ed7-04ae-4381-9a9b-e78bdf99a9c5.png)<br>
 R(X, Y)をワールド座標系の特徴点、Q(u, v)をピクセル座標系の特徴点、P(Cx, Cy)を画像中心、f(fx, fy)をカメラの焦点距離とすると、画像中の三角形OPQと三角形OSRの相似関係を利用すればピクセル座標系からワールド座標系に変換することができます。<br>
 具体的には、特徴点までの距離をZとすると、<br>
 X = Z(u-Cx)/fx<br>
@@ -21,7 +21,7 @@ X = Z(u-Cx)/fx<br>
 # 画像処理ノードの実行方法
 - cd ~/Catkin_ws
 - source devel/setup.bash
-- rosrun pick_and_place image_processing.py
+- rosrun pick_and_place image_processing.py<br>
 注意：画像処理ノードを実行できない場合は以下の処理を行ってください。
 - cd ~/Catkin_ws/src/ROS_Pick_and_Place/pick_and_place/scripts
 - chmod +x image_processing.py 

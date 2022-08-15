@@ -52,8 +52,8 @@ Ubuntu20.04をOSとして使っているPCで実行することが望ましい�
 ![VMware Workstation 16 Player (非営利目的の使用のみ) 2022_08_15 15_06_09](https://user-images.githubusercontent.com/75206988/184593327-216e6cfb-130a-4cdd-a7e4-880cb4805ccb.png)<br>
 12. upgrade が終了したら再起動<br>
 ## ROSのインストール
-1. まずはターミナルを開きます．
-2.ターミナルに以下のように入力．
+1. まずはターミナルを開きます．<br>
+2.ターミナルに以下のように入力．<br>
 ~~~
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'<br>
 ~~~

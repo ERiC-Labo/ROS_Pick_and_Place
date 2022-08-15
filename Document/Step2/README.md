@@ -73,3 +73,21 @@ sudo apt update
 ~~~
 sudo apt install ros-noetic-desktop-full
 ~~~
+7. 環境設定：ターミナルに以下のように入力．<br>
+~~~
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
+~~~
+~~~
+source ~/.bashrc
+~~~
+8. ビルドに必要な依存パッケージ：ターミナルに以下のように入力．<br>
+~~~
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+~~~
+9. rosdepの初期化：ターミナルに以下のように入力．<br>
+~~~
+sudo rosdep init
+~~~
+~~~
+rosdep update
+~~~

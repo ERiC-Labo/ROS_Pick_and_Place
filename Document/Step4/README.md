@@ -19,9 +19,9 @@ X = Z(u-Cx)/fx<br>
 画像処理ノードでのROSが行う処理について説明します。<br>
 シュミレーター内のカメラから"/camera/image_raw"というトピックで画像が配信されているので画像を受け取り、画像に対して処理を行います。ROSのメッセージ形式の画像はOpenCVで扱うことができないので、まずはCvBridgeを利用してメッセージからOpenCVで扱える形式に変換します。その後画像処理を施し、作成したマスク画像を"/mask_img"というトピックで配信します。また、求めた把持位置を"/picking_position"というトピックで配信します。
 # 画像処理ノードの実行方法
-- cd ~/Catkin_ws
+- cd ~/catkin_ws
 - source devel/setup.bash
 - rosrun pick_and_place image_processing.py<br>
 注意：画像処理ノードを実行できない場合は以下の処理を行ってください。
-- cd ~/Catkin_ws/src/ROS_Pick_and_Place/pick_and_place/scripts
+- cd ~/catkin_ws/src/ROS_Pick_and_Place/pick_and_place/scripts
 - chmod +x image_processing.py 

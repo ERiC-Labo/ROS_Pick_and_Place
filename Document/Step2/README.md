@@ -91,3 +91,9 @@ sudo rosdep init
 ~~~
 rosdep update
 ~~~
+## gitcloneの仕方
+1. このリポジトリのトップに移動．<br>
+2. 赤く囲っている部分をクリック．<br>
+![ERiC-Labo_ROS_Pick_and_Place - Google Chrome 2022_10_13 18_20_07](https://user-images.githubusercontent.com/75206988/195550360-f1457b98-119a-466d-b81d-20768c06251b.png)
+3. 赤く囲っている部分をクリックしてリンクをクリップボードにコピー
+![ERiC-Labo_ROS_Pick_and_Place - Google Chrome 2022_10_13 18_20_22](https://user-images.githubusercontent.com/75206988/195550701-41e31820-ea3d-4ede-a161-00c4ec320503.png)

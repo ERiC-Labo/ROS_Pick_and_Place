@@ -1,7 +1,7 @@
 # シミュレーション環境の解説
 ## シミュレーション環境起動方法
 - Ctrl+Alt+Tでターミナルを開く
-- cd ~/Catkin_ws/
+- cd ~/catkin_ws/
 - source devel/setup.bash
 - roslaunch pick_and_place spawn_gazebo_pick_and_place.launch
 - 下の図のような画面が表示されたら成功です。
@@ -15,6 +15,6 @@
 先程シミュレーション環境を起動しましたがこのままではロボットを動かすことはできません。<br>
 ロボットを動かすためには逆運動解を求める必要がありますが、Moveit!を使うと簡単にロボットを動かすことができます。<br>
 - 新しいターミナルを開く
-- cd ~/Catkin_ws/
+- cd ~/catkin_ws/
 - source devel/setup.bash
 - roslaunch moveit_pick_and_place move_group.launch sim:=true

@@ -91,6 +91,17 @@ sudo rosdep init
 ~~~
 rosdep update
 ~~~
+## ROSWorkspaceの作成
+1. ターミナルで以下のように入力．<br>
+~~~
+mkdir -p ~/catkin_ws/src
+~~~
+~~~
+cd ~/catkin_ws/
+~~~
+~~~
+catkin_make
+~~~
 ## gitcloneの仕方
 1. このリポジトリのトップに移動．<br>
 2. 赤く囲っている部分をクリック．<br>

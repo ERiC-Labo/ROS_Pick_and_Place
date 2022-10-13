@@ -46,7 +46,7 @@ Ubuntu20.04をOSとして使っているPCで実行することが望ましい�
 8. 次にUbuntuのバージョンアップをします．そのために，まずはターミナルを開きます．Ubuntuではターミナルから設定を変更したりプログラムを実行したりすることが多いので，いつでもターミナルを開けるようにしておいてください．<br>
 9. 端末をクリックしてください．<br>
 ![VMware Workstation 16 Player (非営利目的の使用のみ) 2022_08_15 15_05_05](https://user-images.githubusercontent.com/75206988/184592763-80a05441-07a5-46f7-8aab-58b7894615b5.png)<br>
-10. ターミナルが開けたら，以下の画像のように入力し，Enterを押す．その後パスワードを入力してEnter.<br>
+10. ターミナルが開けたら，sudo apt updateと入力し，Enterを押す．その後パスワードを入力してEnter.<br>
 ![VMware Workstation 16 Player (非営利目的の使用のみ) 2022_08_15 15_05_30](https://user-images.githubusercontent.com/75206988/184593091-14bbb8e1-19b2-4ee7-bd14-2df12624ebbd.png)<br>
 11. その後，以下の画像のようにsudo apt upgradeと入力し実行,しばらく時間がかかると思います．<br> 
 ![VMware Workstation 16 Player (非営利目的の使用のみ) 2022_08_15 15_06_09](https://user-images.githubusercontent.com/75206988/184593327-216e6cfb-130a-4cdd-a7e4-880cb4805ccb.png)<br>

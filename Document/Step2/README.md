@@ -91,6 +91,11 @@ sudo rosdep init
 ~~~
 rosdep update
 ~~~
+## Moveit!のインストール
+1. ターミナルで以下のように入力． <br>
+~~~
+sudo apt install ros-noetic-moveit
+~~~
 ## ROSWorkspaceの作成
 1. ターミナルで以下のように入力．<br>
 ~~~
@@ -115,3 +120,18 @@ catkin_make
 ![rostutorial_2 - VMware Workstation 16 Player (非営利目的の使用のみ) 2022_10_13 18_14_34](https://user-images.githubusercontent.com/75206988/195556351-9171b30f-d0ea-4040-80bf-d4f8f1c7361f.png)
 5. git cloneをする． <br>
 ![rostutorial_2 - VMware Workstation 16 Player (非営利目的の使用のみ) 2022_10_13 18_14_58](https://user-images.githubusercontent.com/75206988/195556377-a823a25c-633f-4a8c-9dc8-88e84e13a960.png)
+## その他必要なものをインストール
+1. catkin_wsのディレクトリに移動
+~~~
+cd ~/catkin_ws
+~~~
+2. 以下のように入力
+~~~
+rosdep update
+~~~
+~~~
+rosdep install --from-paths src --ignore-src -r -y
+~~~
+~~~
+sudo apt-get install ros-melodic-joint-trajectory-controller
+~~~

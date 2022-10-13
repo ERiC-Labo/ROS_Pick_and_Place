@@ -96,15 +96,22 @@ rosdep update
 ~~~
 mkdir -p ~/catkin_ws/src
 ~~~
+![rostutorial_2 - VMware Workstation 16 Player (非営利目的の使用のみ) 2022_10_13 18_06_28](https://user-images.githubusercontent.com/75206988/195554150-d7f41e2d-3d8a-4c38-a74b-d907e3e7f9d1.png)
 ~~~
 cd ~/catkin_ws/
 ~~~
+![rostutorial_2 - VMware Workstation 16 Player (非営利目的の使用のみ) 2022_10_13 18_07_41](https://user-images.githubusercontent.com/75206988/195554596-29f1a641-3832-48a1-a68c-6fa12628e9ab.png)
 ~~~
 catkin_make
 ~~~
+![rostutorial_2 - VMware Workstation 16 Player (非営利目的の使用のみ) 2022_10_13 18_08_10](https://user-images.githubusercontent.com/75206988/195554634-5d95462d-1e28-48d5-9775-f543ffa1bf8c.png)
 ## gitcloneの仕方
 1. このリポジトリのトップに移動．<br>
 2. 赤く囲っている部分をクリック．<br>
 ![ERiC-Labo_ROS_Pick_and_Place - Google Chrome 2022_10_13 18_20_07](https://user-images.githubusercontent.com/75206988/195550360-f1457b98-119a-466d-b81d-20768c06251b.png)
-3. 赤く囲っている部分をクリックしてリンクをクリップボードにコピー
+3. 赤く囲っている部分をクリックしてリンクをクリップボードにコピー. <br>
 ![ERiC-Labo_ROS_Pick_and_Place - Google Chrome 2022_10_13 18_20_22](https://user-images.githubusercontent.com/75206988/195550701-41e31820-ea3d-4ede-a161-00c4ec320503.png)
+4. catkin_ws/srcに移動.<br>
+![rostutorial_2 - VMware Workstation 16 Player (非営利目的の使用のみ) 2022_10_13 18_14_34](https://user-images.githubusercontent.com/75206988/195556351-9171b30f-d0ea-4040-80bf-d4f8f1c7361f.png)
+5. git cloneをする． <br>
+![rostutorial_2 - VMware Workstation 16 Player (非営利目的の使用のみ) 2022_10_13 18_14_58](https://user-images.githubusercontent.com/75206988/195556377-a823a25c-633f-4a8c-9dc8-88e84e13a960.png)

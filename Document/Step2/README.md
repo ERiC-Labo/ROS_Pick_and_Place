@@ -133,5 +133,5 @@ rosdep update
 rosdep install --from-paths src --ignore-src -r -y
 ~~~
 ~~~
-sudo apt-get install ros-melodic-joint-trajectory-controller
+sudo apt-get install ros-noetic-joint-trajectory-controller
 ~~~

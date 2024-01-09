@@ -8,6 +8,6 @@
 ~~~
 cd catkin_ws
 source devel/setup.bash
-roslaunch FasterR-CNN_Recognition
+roslaunch FasterR-CNN_Recognition camera.launch
 ~~~
 

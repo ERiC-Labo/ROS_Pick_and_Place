@@ -2,7 +2,8 @@
 # はじめに
 本資料では深層学習を用いた物体認識のチュートリアルになります。<br>
 シミュレーション環境内のハードの問題から認識のみにはなりますが、Documentで画像特徴から認識した箇所をDocument2の内容に置き換えるだけで深層学習を用いてピッキングできるようになります。<br>
-なお、Document2の内容はDocumentに記載された内容をすべて実行したあとに行ってください。
+なお、Document2の内容はDocumentに記載された内容をすべて実行したあとに行ってください。<br>
+また、このチュートリアルを実行するにはそれなりのGPUを積んだPCが必要になります。適宜用意してください。
 # 環境の立ち上げ
 ターミナル上で以下のように入力
 ~~~
@@ -59,7 +60,7 @@ rosrun FasterR-CNN_Recognition image_processing.py
 RGB画像を表示したのと同様にしてrvizからTopicを確認してください。
 ![Screenshot from 2024-01-10 02-13-51](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/f461dc4c-c717-4a02-9ce8-538cf3ce4013)
 そうすると、画像のように新たなTopicが出てきていると思うのでImageを選択してください。
-![Screenshot from 2024-01-10 02-15-28](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/754901e7-87e0-42c6-a963-5fc95df8b28a)
+![Screenshot from 2024-01-10 02-15-28](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/754901e7-87e0-42c6-a963-5fc95df8b28a)<br>
 そうするとこのような画面が表示されていると思います。どうやらMask R-CNNちゃんは皿のことをフリスビーと認識してしまっているようですが、位置はちゃんと認識できているんじゃないでしょうか。<br>
 画像中の赤い点はバウンディングボックスの中心をあらわしていますが、こうした特徴点を把持位置として利用することで、ロボットハンドの性能によっては最適ではないかもしれませんが、Document1で行った画像特徴からの把持位置認識と同様にしてロボットでピッキングすることができます。<br>
 ターミナルに戻ってみましょう。

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="model" default="$(find YOLO_Recognition)/urdf/camera.urdf.xacro"/>
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+    <node pkg="gazebo_ros" type="spawn_model" name="gazebo_ros" args="-urdf -model camera -param robot_description">
+        
+    </node>
+</launch>

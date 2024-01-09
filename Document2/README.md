@@ -67,5 +67,5 @@ RGB画像を表示したのと同様にしてrvizからTopicを確認してく�
 ![Screenshot from 2024-01-10 02-11-47](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/a70de70b-84a4-4e18-a091-7f74718063c9)<br>
 ターミナル上に記載されているのは、カメラから見た皿のXYZ座標になります。<br>
 ロボットで把持するときにはこの値をロボットの土台部分を原点とする座標系に変換することで、把持ができるようになります。<br>
-![Screenshot from 2024-01-10 02-24-25](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/6ba4cc1c-8c3d-4ac5-b5d8-b0e4380bd85c)
+![Screenshot from 2024-01-10 02-24-25](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/6ba4cc1c-8c3d-4ac5-b5d8-b0e4380bd85c)<br>
 コーラの缶をおいても認識自体はできています。皆さんもカメラの位置を変えたり、対象物体を変えてみたりしながら遊んでみてください。

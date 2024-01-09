@@ -20,6 +20,7 @@ cd catkin_ws
 source devel/setup.bash
 rviz
 ~~~
+## RGB画像の表示
 カメラで撮影される画像を可視化してみましょう。rvizが起動すると以下のような画面になると思います。
 ![Screenshot from 2024-01-10 01-35-47](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/70c0cabe-f217-4d83-80e3-634d540b5766)
 画面左下のaddを押す。
@@ -29,3 +30,8 @@ rviz
 画面中のcolor以下のimage_rawを押す。
 ![Screenshot from 2024-01-10 01-50-53](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/b862f77c-890a-4216-a6af-a7e950791126)
 画面中のImageを選択。
+![Screenshot from 2024-01-10 01-52-23](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/5beb311f-4e7e-400a-88aa-f8503755cf66)
+そうするとRGB画像が表示されます。
+## 深度画像の表示
+RGBと同様にして深度画像も表示させてみましょう。うまく表示できれば以下のようになります。
+![Screenshot from 2024-01-10 01-54-46](https://github.com/ERiC-Labo/ROS_Pick_and_Place/assets/75206988/04791520-abbf-4adc-bcde-09f3a54e0484)

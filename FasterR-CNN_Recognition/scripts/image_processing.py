@@ -124,8 +124,8 @@ def prediction(msg):
         #     cv2.circle(image, (center_x, center_y), 5, (0, 0, 255), -1)
             
         #     Z = depth_image[center_x][center_y]
-        #     X = (center_x-640/2)*(Z)/381.362467
-        #     Y = (center_y-360/2)*(Z)/381.362467
+        #     X = (center_x-640/2)*(Z)/467.742703
+        #     Y = (center_y-360/2)*(Z)/467.742703
         #     print(X, Y, Z)
         #-----------------------------------------------------------------------------------------------------------------------------------------------------
         imgMsg = bridge.cv2_to_imgmsg(image, "bgr8")
